@@ -20,95 +20,112 @@ const steps = [
 
 export default function Remont() {
   return (
-    <div className="flex-1">
-      <header className="sticky top-0 z-10 bg-background/90 backdrop-blur border-b border-foreground/10">
-        <div className="mx-auto max-w-5xl px-4 h-16 flex items-center justify-between">
-          <span className="text-xl font-bold tracking-tight">Чистая работа</span>
+    <div className="flex-1 bg-[#12151c] text-[#e8eaef]">
+      <header className="sticky top-0 z-10 bg-[#12151c]/90 backdrop-blur border-b border-white/10">
+        <div className="mx-auto max-w-6xl px-4 h-16 flex items-center justify-between">
+          <span className="text-xl font-bold tracking-tight">
+            Чистая<span className="text-[#f5a623]">работа</span>
+          </span>
+          <nav className="hidden sm:flex gap-6 text-sm text-white/70">
+            <a href="#uslugi" className="hover:text-white">Услуги</a>
+            <a href="#kak" className="hover:text-white">Как работаем</a>
+            <a href="#zayavka" className="hover:text-white">Контакты</a>
+          </nav>
           <a
             href="#zayavka"
-            className="rounded-full bg-accent text-white px-5 py-2 text-sm font-medium hover:opacity-90"
+            className="rounded-lg bg-[#f5a623] text-[#12151c] px-5 py-2 text-sm font-semibold hover:brightness-110"
           >
-            Оставить заявку
+            Заявка
           </a>
         </div>
       </header>
 
-      <section className="mx-auto max-w-5xl px-4 py-24 text-center">
-        <p className="text-accent font-medium uppercase tracking-widest text-sm">
-          Ремонт квартир и комнат · Гарантия 2 года
-        </p>
-        <h1 className="mt-4 text-4xl sm:text-6xl font-bold tracking-tight">
-          Ремонт под ключ за 30 дней
-        </h1>
-        <p className="mt-6 text-lg text-foreground/70 max-w-xl mx-auto">
-          Договор и фиксированная смета. Не сорвём сроки — за каждый день
-          просрочки платим мы, а не вы.
-        </p>
-        <div className="mt-8 flex gap-4 justify-center">
-          <a
-            href="#zayavka"
-            className="rounded-full bg-accent text-white px-8 py-3 font-medium hover:opacity-90"
-          >
-            Рассчитать смету
-          </a>
-          <a
-            href="#raboty"
-            className="rounded-full border border-foreground/20 px-8 py-3 font-medium hover:border-accent hover:text-accent"
-          >
-            Наши работы
-          </a>
-        </div>
-      </section>
-
-      <section className="mx-auto max-w-5xl px-4 pb-16 grid gap-4 sm:grid-cols-3 text-center">
-        {[
-          ["15 лет", "опыта в ремонте"],
-          ["180+", "сданных объектов"],
-          ["0 ₽", "за выезд замерщика"],
-        ].map(([big, small]) => (
-          <div key={small} className="rounded-2xl bg-white p-6 border border-foreground/5 shadow-sm">
-            <p className="text-3xl font-bold text-accent">{big}</p>
-            <p className="mt-2 text-sm text-foreground/60">{small}</p>
-          </div>
-        ))}
-      </section>
-
-      <section id="raboty" className="mx-auto max-w-5xl px-4 py-16">
-        <h2 className="text-3xl font-bold">Услуги и цены</h2>
-        <div className="mt-8 grid gap-4 sm:grid-cols-2">
-          {services.map((s) => (
-            <div key={s.name} className="rounded-2xl bg-white p-6 shadow-sm border border-foreground/5">
-              <div className="flex justify-between items-baseline gap-2">
-                <h3 className="font-semibold">{s.name}</h3>
-                <span className="text-accent font-bold whitespace-nowrap">{s.price}</span>
-              </div>
-              <p className="mt-2 text-sm text-foreground/60">{s.desc}</p>
+      <section className="relative overflow-hidden">
+        <div className="mx-auto max-w-6xl px-4 py-24 sm:py-32 grid lg:grid-cols-2 gap-12 items-center">
+          <div>
+            <p className="inline-block rounded-full bg-[#f5a623]/15 text-[#f5a623] px-4 py-1.5 text-sm font-semibold">
+              Гарантия 2 года · Договор
+            </p>
+            <h1 className="mt-6 text-4xl sm:text-6xl font-bold tracking-tight leading-tight">
+              Ремонт под ключ <span className="text-[#f5a623]">за 30 дней</span>
+            </h1>
+            <p className="mt-6 text-lg text-white/60 max-w-md">
+              Фиксированная смета и договор. Не сорвём сроки — за каждый день
+              просрочки платим мы, а не вы.
+            </p>
+            <div className="mt-8 flex flex-wrap gap-4">
+              <a
+                href="#zayavka"
+                className="rounded-lg bg-[#f5a623] text-[#12151c] px-8 py-3.5 font-semibold hover:brightness-110"
+              >
+                Рассчитать смету
+              </a>
+              <a
+                href="#uslugi"
+                className="rounded-lg border border-white/25 px-8 py-3.5 font-medium hover:border-[#f5a623] hover:text-[#f5a623]"
+              >
+                Услуги и цены
+              </a>
             </div>
-          ))}
-        </div>
-      </section>
-
-      <section className="bg-foreground text-background">
-        <div className="mx-auto max-w-5xl px-4 py-16">
-          <h2 className="text-3xl font-bold">Как мы работаем</h2>
-          <div className="mt-8 grid gap-8 sm:grid-cols-4">
-            {steps.map((st) => (
-              <div key={st.n}>
-                <div className="w-10 h-10 rounded-full bg-accent text-white flex items-center justify-center font-bold">
-                  {st.n}
-                </div>
-                <h3 className="mt-4 font-semibold">{st.title}</h3>
-                <p className="mt-2 text-sm opacity-70">{st.desc}</p>
+          </div>
+          <div className="grid grid-cols-2 gap-4">
+            {[
+              ["15 лет", "опыта в ремонте"],
+              ["180+", "сданных объектов"],
+              ["0 ₽", "за выезд замерщика"],
+              ["×1", "смена бригады не нужна"],
+            ].map(([big, small]) => (
+              <div key={small} className="rounded-2xl bg-white/5 border border-white/10 p-6">
+                <p className="text-3xl font-bold text-[#f5a623]">{big}</p>
+                <p className="mt-2 text-sm text-white/50">{small}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      <section id="zayavka" className="mx-auto max-w-5xl px-4 py-16">
-        <div className="rounded-3xl bg-accent text-white p-8 sm:p-12 text-center">
+      <section id="uslugi" className="border-t border-white/10 bg-[#171b24]">
+        <div className="mx-auto max-w-6xl px-4 py-20">
+          <h2 className="text-3xl font-bold">Услуги и цены</h2>
+          <div className="mt-10 grid gap-4 sm:grid-cols-2">
+            {services.map((s) => (
+              <div
+                key={s.name}
+                className="rounded-2xl bg-[#12151c] border border-white/10 p-7 hover:border-[#f5a623]/50 transition-colors"
+              >
+                <div className="flex justify-between items-baseline gap-3">
+                  <h3 className="font-semibold text-lg">{s.name}</h3>
+                  <span className="text-[#f5a623] font-bold whitespace-nowrap">{s.price}</span>
+                </div>
+                <p className="mt-3 text-sm text-white/50">{s.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section id="kak" className="mx-auto max-w-6xl px-4 py-20">
+        <h2 className="text-3xl font-bold">Как мы работаем</h2>
+        <div className="mt-10 grid gap-8 sm:grid-cols-4">
+          {steps.map((st, i) => (
+            <div key={st.n} className="relative">
+              <div className="w-11 h-11 rounded-lg bg-[#f5a623] text-[#12151c] flex items-center justify-center font-bold text-lg">
+                {st.n}
+              </div>
+              {i < steps.length - 1 && (
+                <div className="hidden sm:block absolute top-5 left-14 right-0 h-px bg-white/15" />
+              )}
+              <h3 className="mt-4 font-semibold">{st.title}</h3>
+              <p className="mt-2 text-sm text-white/50">{st.desc}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section id="zayavka" className="bg-[#171b24] border-t border-white/10">
+        <div className="mx-auto max-w-3xl px-4 py-20 text-center">
           <h2 className="text-3xl font-bold">Узнайте стоимость вашего ремонта</h2>
-          <p className="mt-4 opacity-80 max-w-lg mx-auto">
+          <p className="mt-4 text-white/60">
             Оставьте номер — перезвоним за 15 минут и договоримся о бесплатном замере.
           </p>
           <form className="mt-8 flex flex-col sm:flex-row gap-3 justify-center" action="tel:+79990000000">
@@ -116,21 +133,21 @@ export default function Remont() {
               type="tel"
               name="phone"
               placeholder="+7 (___) ___-__-__"
-              className="rounded-full px-6 py-3 text-foreground bg-white w-full sm:w-72 outline-none"
+              className="rounded-lg px-6 py-3.5 text-white bg-[#12151c] border border-white/15 w-full sm:w-72 outline-none focus:border-[#f5a623]"
             />
             <button
               type="submit"
-              className="rounded-full bg-white text-accent px-8 py-3 font-medium hover:opacity-90"
+              className="rounded-lg bg-[#f5a623] text-[#12151c] px-8 py-3.5 font-semibold hover:brightness-110"
             >
               Жду звонка
             </button>
           </form>
-          <p className="mt-4 text-sm opacity-60">Никакого спама. Один звонок — и всё.</p>
+          <p className="mt-4 text-sm text-white/40">Никакого спама. Один звонок — и всё.</p>
         </div>
       </section>
 
-      <footer className="border-t border-foreground/10">
-        <div className="mx-auto max-w-5xl px-4 py-8 text-center text-sm text-foreground/50">
+      <footer className="border-t border-white/10">
+        <div className="mx-auto max-w-6xl px-4 py-8 text-center text-sm text-white/40">
           © 2026 Мастер по ремонту «Чистая работа» · +7 (999) 000-00-00
         </div>
       </footer>
